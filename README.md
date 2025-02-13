@@ -38,45 +38,63 @@ CREATE TABLE netflix
 
 ### 1. Count the Number of Movies vs TV Shows
 ```sql
-SELECT 
-    type,
-    COUNT(*)
-FROM netflix
-GROUP BY 1;
+ i) select
+		Sum(case when type = 'Movie' then 1 End) as No_of_movie,
+		Sum(case when type = 'TV Show' then 1 End) as No_of_Tv_Show
+	from
+		netflix;
+		
+ii) select
+		type,
+		count(*)
+	from
+		netflix
+	group by
+		1;
 ```
 **Objective:** Determine the distribution of content types on Netflix.
 
 ### 2. Find the Most Common Rating for Movies and TV Shows
 ```sql
-WITH RatingCounts AS (
-    SELECT 
-        type,
-        rating,
-        COUNT(*) AS rating_count
-    FROM netflix
-    GROUP BY type, rating
-),
-RankedRatings AS (
-    SELECT 
-        type,
-        rating,
-        rating_count,
-        RANK() OVER (PARTITION BY type ORDER BY rating_count DESC) AS rank
-    FROM RatingCounts
-)
-SELECT 
-    type,
-    rating AS most_frequent_rating
-FROM RankedRatings
-WHERE rank = 1;
+   select
+		rating,
+		Sum(case when type = 'Movie' then 1 End) as Movie,
+		Sum(case when type = 'TV Show' then 1 End) as TV_Show
+	from
+		netflix
+	group by
+		1
+	order by
+		2 desc
+	limit 
+		1 
 ```
 **Objective:** Identify the most frequently occurring rating for each type of content.
 
 ### 3. List All Movies Released in a Specific Year (e.g., 2020)
 ```sql
-SELECT * 
-FROM netflix
-WHERE release_year = 2020;
+i) select
+		*
+	from
+		netflix
+	where
+		type = 'Movie'
+		And
+		release_year = 2020
+		
+ii) select
+		release_year,
+		title,
+		Row_number() over(partition by release_year order by release_year desc) as rn
+	from
+		netflix
+	where
+		type = 'Movie'
+	group by
+		1,2
+	order by
+		release_year desc
+
 ```
 **Objective:** Retrieve all movies released in a specific year.
 
