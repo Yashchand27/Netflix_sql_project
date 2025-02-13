@@ -231,9 +231,9 @@ limit 10
 **Objective:** Identify the top 10 actors with the most appearances in Indian-produced movies.
 
 ## Findings and Conclusion
-- **Content Distribution:** The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
-- **Common Ratings:** Insights into the most common ratings provide an understanding of the content's target audience.
-- **Geographical Insights:** The top countries and the average content releases by India highlight regional content distribution.
-- **Content Categorization:** Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
+- **Content Distribution:** The dataset includes a wide variety of movies and TV shows, covering different genres and ratings.
+- **Common Ratings:** Understanding the most frequently assigned ratings helps identify the target audience for the content.
+- **Geographical Insights:** The prominence of content from leading countries, especially India, highlights regional distribution patterns.
+- **Content Categorization:**  Organizing content based on key terms provides a clearer picture of the types of content available on Netflix.
 
 This analysis provides a comprehensive view of Netflix's content and can help inform content strategy and decision-making.
