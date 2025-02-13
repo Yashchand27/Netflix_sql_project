@@ -38,19 +38,19 @@ CREATE TABLE netflix
 
 ### 1. Count the Number of Movies vs TV Shows
 ```sql
- i) select
-		Sum(case when type = 'Movie' then 1 End) as No_of_movie,
-		Sum(case when type = 'TV Show' then 1 End) as No_of_Tv_Show
-	from
-		netflix;
+ i)  select
+       Sum(case when type = 'Movie' then 1 End) as No_of_movie,
+       Sum(case when type = 'TV Show' then 1 End) as No_of_Tv_Show
+     from
+       netflix;
 		
-ii) select
-		type,
-		count(*)
-	from
-		netflix
-	group by
-		1;
+ii)  select
+       type,
+       count(*)
+     from
+       netflix
+     group by
+        1;
 ```
 **Objective:** Determine the distribution of content types on Netflix.
 
