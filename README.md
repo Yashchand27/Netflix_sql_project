@@ -56,18 +56,18 @@ ii)  select
 
 ### 2. Find the Most Common Rating for Movies and TV Shows
 ```sql
-    select
-       rating,
-       Sum(case when type = 'Movie' then 1 End) as Movie,
-       Sum(case when type = 'TV Show' then 1 End) as TV_Show
-    from
-       netflix
-    group by
-        1
-    order by
-        2 desc
-    limit 
-        1 
+select
+  rating,
+  Sum(case when type = 'Movie' then 1 End) as Movie,
+  Sum(case when type = 'TV Show' then 1 End) as TV_Show
+from
+  netflix
+group by
+  1
+order by
+  2 desc
+limit 
+  1 
 ```
 **Objective:** Identify the most frequently occurring rating for each type of content.
 
